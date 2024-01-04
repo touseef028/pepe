@@ -24,7 +24,6 @@ const StyledBox = styled(Box)((
         height: '100vh',
         padding:'60px',
         [theme.breakpoints.down('md')]: {
-            width: '100%',
             height: '50vh', 
           },
         [theme.breakpoints.down('sm')]: {
