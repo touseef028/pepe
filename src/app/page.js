@@ -2,23 +2,12 @@
 import { Grid, Stack, Box, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Image from "next/image";
-import cartoonImg from "../../public/pepebg2.png";
+import cartoonImg from "../../public/latestPepe.png";
 import cartoonImg2 from "../../public/cartoon2.png";
 import color1 from "../../public/pepe1.JPG";
 import color2 from "../../public/pepe2.JPG";
 import color3 from "../../public/pepe3.JPG";
 import color4 from "../../public/pepe4.JPG";
-import {
-  ThirdwebProvider,
-  ConnectWallet,
-  // import the wallets you want
-  metamaskWallet,
-  walletConnect,
-  coinbaseWallet,
-  trustWallet,
-  phantomWallet,
-  zerionWallet,
-} from "@thirdweb-dev/react";
 const PREFIX = 'page';
 // #522FA4
 
@@ -30,6 +19,8 @@ const classes = {
   thumbnail2: `${PREFIX}-thumbnail2`,
   thumbnail3: `${PREFIX}-thumbnail3`,
   thumbnail4: `${PREFIX}-thumbnail4`,
+  stack: `${PREFIX}-stack`,
+  btn: `${PREFIX}-btn`,
 };
 
 const StyledBox = styled(Box)((
@@ -41,6 +32,9 @@ const StyledBox = styled(Box)((
     width: '85%',
     height: 'auto',
     cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      width: '90%',
+    },
   },
 
   [`& .${classes.thumbnail}`]: {
@@ -50,7 +44,6 @@ const StyledBox = styled(Box)((
       margin: '10px',
     },
     [theme.breakpoints.down('sm')]: {
-      // margin: '10px',
       width: '70%',
       height: 'auto'
     },
@@ -114,6 +107,35 @@ const StyledBox = styled(Box)((
       marginTop: '20%'
     },
   },
+  [`& .${classes.stack}`]: {
+    position: 'absolute',
+    marginTop: '-15%',
+    marginLeft: '44%',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '-15%',
+      marginLeft: '40%',
+    },
+  },
+  [`& .${classes.btn}`]: {
+    background: '#522FA4', 
+    color: 'white',
+    width:'40%',
+    fontSize:'12px',
+    [theme.breakpoints.down('md')]: {
+      width:'30%',
+      fontSize:'12px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width:'5px',
+      fontSize:'10px',
+      height:'10px'
+    },
+    [theme.breakpoints.down('xs')]: {
+      width:'1px',
+      fontSize:'10px',
+      height:'1px'
+    },
+  },
 
 }));
 
@@ -123,38 +145,12 @@ export default function Home() {
   };
   return (
     <StyledBox sx={{ marginTop: '100px' }}>
-      <Grid container spacing={1} style={{
-        background: `url('/cartoon2.png')`,
-      }}>
-        <Grid item xs={12} md={6} sx={{ position: 'relative',height:'100vh' }}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={6} sx={{ position: 'relative'}}>
           <Image useMap="#workmap" src={cartoonImg} className={classes.image} />
           <map style={{ cursor: 'pointer' }} name="workmap">
             <area shape="rect" coords="422,477,239,314" alt="btn" href="google.com" onClick={handleSelect} />
-          </map>
-          <Stack sx={{
-            position: 'absolute',
-            marginTop: '-19vh',
-            marginLeft: '48vh'
-          }}>
-            <ThirdwebProvider
-              clientId="5e74f521aded03927839c03d3881b244"
-              // activeChain={Injected}
-              supportedWallets={[
-                metamaskWallet(),
-                walletConnect(),
-                coinbaseWallet(),
-                trustWallet(),
-                phantomWallet(),
-                zerionWallet(),
-              ]}
-            >
-              <ConnectWallet
-                style={{ background: '#522FA4', color: 'white' }}
-                theme={"dark"}
-                modalSize={"wide"}
-              />
-            </ThirdwebProvider>
-          </Stack>
+          </map>      
         </Grid>
         <Grid className={classes.arts} item container xs={12} md={6} spacing={0}>
           <Grid item xs={12} md={6}>
@@ -171,7 +167,7 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-      {/* <Image src={cartoonImg2} className={classes.imageBottomRight} /> */}
+      <Image src={cartoonImg2} className={classes.imageBottomRight} />
     </StyledBox>
   );
 }

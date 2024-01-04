@@ -16,6 +16,17 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  // import the wallets you want
+  metamaskWallet,
+  walletConnect,
+  coinbaseWallet,
+  trustWallet,
+  phantomWallet,
+  zerionWallet,
+} from "@thirdweb-dev/react";
 const drawerWidth = 240;
 const navItems = ['Just Tap Game', 'Game Info', 'Memes','Links'];
 
@@ -141,6 +152,26 @@ function DrawerAppBar(props) {
               ))}
           </Box>
           <Box sx={{ marginLeft: 'auto' }}>
+          <ThirdwebProvider
+              clientId="5e74f521aded03927839c03d3881b244"
+              // activeChain={Injected}
+              supportedWallets={[
+                metamaskWallet(),
+                walletConnect(),
+                coinbaseWallet(),
+                trustWallet(),
+                phantomWallet(),
+                zerionWallet(),
+              ]}
+            >
+              <ConnectWallet
+                className='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium mui-theme-1pcjehz-MuiButtonBase-root-MuiButton-root'
+                variant='outlined'
+                sx={{color:'#37d36c', marginRight: 1,borderColor:'#37d36c',fontWeight:'bolder',borderRadius:'10px' }}
+                theme={"dark"}
+                modalSize={"wide"}
+              />
+            </ThirdwebProvider>
        <Link style={{textDecoration:'none'}} href="/leaderboard">
       <Button variant='outlined' sx={{color:'#37d36c', marginRight: 1,borderColor:'#37d36c',fontWeight:'bolder',borderRadius:'10px' }}>Leaderboard</Button>
       </Link>
