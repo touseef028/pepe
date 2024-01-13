@@ -28,7 +28,7 @@ import {
   zerionWallet,
 } from "@thirdweb-dev/react";
 const drawerWidth = 240;
-const navItems = ['Just Tap Game', 'Game Info', 'Memes','Links'];
+const navItems = ['Just Tap Game', 'Game Info', 'Memes', 'Links'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -40,40 +40,40 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-    <Link href="/" style={{textDecoration:'none'}}>
-      <Typography variant="h6" sx={{ my: 2,backgroundColor:'black',padding: '12px 0',color:'white' }}>
-        Just Pepe
-      </Typography>
+      <Link href="/" style={{ textDecoration: 'none' }}>
+        <Typography variant="h6" sx={{ my: 2, backgroundColor: 'black', padding: '12px 0', color: 'white' }}>
+          Just Pepe
+        </Typography>
       </Link>
       <Divider />
       <List>
         {navItems.map((item, index) => (
           <ListItem key={item} disablePadding>
             {index === 0 ? (
-              <Link style={{textDecoration:'none'}} href="/just-tap-game" >
+              <Link style={{ textDecoration: 'none' }} href="/just-tap-game" >
                 <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
-            ) : index===1? (
-              <Link style={{textDecoration:'none'}} href="/game-info" >
+            ) : index === 1 ? (
+              <Link style={{ textDecoration: 'none' }} href="/game-info" >
                 <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
-            ) :index===2? (
-              <Link style={{textDecoration:'none'}} href="/memes" >
+            ) : index === 2 ? (
+              <Link style={{ textDecoration: 'none' }} href="/memes" >
                 <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
-            ):index===3? (
-              <Link style={{textDecoration:'none'}} href="/links" >
+            ) : index === 3 ? (
+              <Link style={{ textDecoration: 'none' }} href="/links" >
                 <ListItemButton>
                   <ListItemText primary={item} />
                 </ListItemButton>
               </Link>
-            ):(
+            ) : (
               <ListItemButton>
                 <ListItemText primary={item} />
               </ListItemButton>
@@ -100,84 +100,94 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Link href="/" style={{textDecoration:'none',flexGrow:0.5}}>
-          <Typography
-            variant="h1"
-            component="div"
-            sx={{
-              display: { xs: 'none', md: 'block' },
-              padding: '12px 0', 
-              flexGrow:0.1,
-              color:'white',
-              fontFamily:'Take Looks'
-            }}
-          >
-            Just Pepe
-          </Typography>
+          <Link href="/" style={{ textDecoration: 'none', flexGrow: 0.5 }}>
+            <Typography
+              variant="h1"
+              component="div"
+              sx={{
+                display: { xs: 'none', md: 'block' },
+                padding: '12px 0',
+                flexGrow: 0.1,
+                color: 'white',
+                fontFamily: 'Take Looks'
+              }}
+            >
+              Just Pepe
+            </Typography>
           </Link>
-          <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:"center",flexGrow:1 }}>
-          <Box sx={{ display: { xs: 'none', sm: 'block' },mx:'auto' }}>
-            {navItems.map((item, index) => (
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: "center", flexGrow: 1 }}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, mx: 'auto' }}>
+              {navItems.map((item, index) => (
                 <React.Fragment key={item}>
                   {index === 0 ? (
                     <Link href="/just-tap-game" passHref>
-                      <Button sx={{ color: '#fff', fontWeight: 'bolder',fontFamily:'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
+                      <Button sx={{ color: '#fff', fontWeight: 'bolder', fontFamily: 'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
                         {item}
                       </Button>
                     </Link>
-                  ) : index===1? (
+                  ) : index === 1 ? (
                     <Link href="/game-info" passHref>
-                      <Button sx={{ color: '#fff', fontWeight: 'bolder',fontFamily:'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
+                      <Button sx={{ color: '#fff', fontWeight: 'bolder', fontFamily: 'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
                         {item}
                       </Button>
                     </Link>
-            ) :index===2? (
+                  ) : index === 2 ? (
                     <Link href="/memes" passHref>
-                      <Button sx={{ color: '#fff', fontWeight: 'bolder',fontFamily:'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
+                      <Button sx={{ color: '#fff', fontWeight: 'bolder', fontFamily: 'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
                         {item}
                       </Button>
                     </Link>
-            ): index===3? (
+                  ) : index === 3 ? (
                     <Link href="/links" passHref>
-                      <Button sx={{ color: '#fff', fontWeight: 'bolder',fontFamily:'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
+                      <Button sx={{ color: '#fff', fontWeight: 'bolder', fontFamily: 'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
                         {item}
                       </Button>
                     </Link>
-            ):(
-                    <Button sx={{ color: '#fff', fontWeight: 'bolder',fontFamily:'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
+                  ) : (
+                    <Button sx={{ color: '#fff', fontWeight: 'bolder', fontFamily: 'COPPERPLATE', marginRight: index < navItems.length - 1 ? 5 : 0 }}>
                       {item}
                     </Button>
                   )}
                 </React.Fragment>
               ))}
-          </Box>
-          <Box>
-          <ThirdwebProvider
-              clientId="5e74f521aded03927839c03d3881b244"
-              // activeChain={Injected}
-              supportedWallets={[
-                metamaskWallet(),
-                walletConnect(),
-                coinbaseWallet(),
-                trustWallet(),
-                phantomWallet(),
-                zerionWallet(),
-              ]}
-            >
-              <ConnectWallet
-                className='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium mui-theme-1pcjehz-MuiButtonBase-root-MuiButton-root'
-                variant='outlined'
-                sx={{color:'#37d36c !important', marginRight: 1,borderColor:'#37d36c !important',fontWeight:'bolder !important',borderRadius:'10px !important' }}
-                theme={"dark"}
-                modalSize={"wide"}
-              />
-            </ThirdwebProvider>
             </Box>
-          <Box>
-       <Link style={{textDecoration:'none'}} href="/leaderboard">
-      <Button variant='outlined' sx={{color:'#37d36c', marginRight: 1,borderColor:'#37d36c',fontWeight:'bolder',borderRadius:'10px' }}>Leaderboard</Button>
-      </Link>
-    </Box>
+            <Box>
+              <ThirdwebProvider
+                clientId="5e74f521aded03927839c03d3881b244"
+                // activeChain={Injected}
+                supportedWallets={[
+                  metamaskWallet(),
+                  walletConnect(),
+                  coinbaseWallet(),
+                  trustWallet(),
+                  phantomWallet(),
+                  zerionWallet(),
+                ]}
+              >
+                <ConnectWallet
+                  // className='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium mui-theme-1pcjehz-MuiButtonBase-root-MuiButton-root'
+                  variant='outlined'
+                  // style={{color:'#37d36c !important', marginRight: 1,borderColor:'#37d36c !important',fontWeight:'bolder !important',borderRadius:'10px !important' }}
+                  style={{
+                    minWidth: "140px",
+                    color: "#37d36c !important",
+                    marginRight: "10px",
+                    borderColor: "#37d36c !important",
+                    fontWeight: "bolder !important",
+                    borderRadius: "10px !important",
+                    background: "transparent",
+                    border: "1px solid",
+                    padding: "7px 4px"
+                  }} theme={"dark"}
+                  modalSize={"wide"}
+                />
+              </ThirdwebProvider>
+            </Box>
+            <Box>
+              <Link style={{ textDecoration: 'none' }} href="/leaderboard">
+                <Button variant='outlined' sx={{ color: '#37d36c', marginRight: 1, borderColor: '#37d36c', fontWeight: 'bolder', borderRadius: '10px' }}>Leaderboard</Button>
+              </Link>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
