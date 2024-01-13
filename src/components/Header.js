@@ -151,7 +151,7 @@ function DrawerAppBar(props) {
                 </React.Fragment>
               ))}
           </Box>
-          <Box sx={{ marginLeft: 'auto' }}>
+          <Box>
           <ThirdwebProvider
               clientId="5e74f521aded03927839c03d3881b244"
               // activeChain={Injected}
@@ -167,11 +167,13 @@ function DrawerAppBar(props) {
               <ConnectWallet
                 className='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium mui-theme-1pcjehz-MuiButtonBase-root-MuiButton-root'
                 variant='outlined'
-                sx={{color:'#37d36c', marginRight: 1,borderColor:'#37d36c',fontWeight:'bolder',borderRadius:'10px' }}
+                sx={{color:'#37d36c !important', marginRight: 1,borderColor:'#37d36c !important',fontWeight:'bolder !important',borderRadius:'10px !important' }}
                 theme={"dark"}
                 modalSize={"wide"}
               />
             </ThirdwebProvider>
+            </Box>
+          <Box>
        <Link style={{textDecoration:'none'}} href="/leaderboard">
       <Button variant='outlined' sx={{color:'#37d36c', marginRight: 1,borderColor:'#37d36c',fontWeight:'bolder',borderRadius:'10px' }}>Leaderboard</Button>
       </Link>
